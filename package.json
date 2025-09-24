@@ -1,0 +1,25 @@
+{
+  "name": "sequelize-models-lib",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "peerDependencies": {
+    "sequelize": "^6"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}
