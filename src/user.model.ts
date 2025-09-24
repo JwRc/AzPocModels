@@ -1,41 +1,65 @@
-import { DataTypes, Sequelize, Model } from 'sequelize';
+import { Table, Column, Model, DataType, PrimaryKey, AutoIncrement, Default } from 'sequelize-typescript';
 
-export class User extends Model {
+@Table({ tableName: 'users', timestamps: false })
+export class User extends Model<User> {
+  @PrimaryKey
+  @AutoIncrement
+  @Column(DataType.INTEGER)
   id!: number;
-  uuid!: string;
-  name!: string;
-  email!: string;
-  // ... outros campos
-}
 
-export function initUserModel(sequelize: Sequelize) {
-  User.init(
-    {
-      id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-      uuid: { type: DataTypes.STRING(36), allowNull: false, unique: true },
-      partner: { type: DataTypes.INTEGER, allowNull: false },
-      external_id: { type: DataTypes.STRING(255) },
-      type: { type: DataTypes.STRING(8), allowNull: false },
-      name: { type: DataTypes.STRING(255) },
-      cpfcnpj: { type: DataTypes.STRING(30) },
-      cuit_cuil: { type: DataTypes.STRING(50) },
-      document: { type: DataTypes.STRING(30) },
-      birthday: { type: DataTypes.STRING(18) },
-      email: { type: DataTypes.STRING(100), allowNull: false },
-      phone: { type: DataTypes.STRING(100) },
-      status: { type: DataTypes.STRING(36), allowNull: false, defaultValue: 'unverified' },
-      organization: { type: DataTypes.INTEGER },
-      locale: { type: DataTypes.STRING(10), defaultValue: 'en' },
-      address: { type: DataTypes.TEXT },
-      deleted_at: { type: DataTypes.DATE },
-      created_at: { type: DataTypes.DATE, allowNull: false, defaultValue: DataTypes.NOW },
-      updated_at: { type: DataTypes.DATE, allowNull: false, defaultValue: DataTypes.NOW },
-    },
-    {
-      tableName: 'users',
-      sequelize,
-      timestamps: false, // porque você já tem created_at e updated_at
-    }
-  );
-  return User;
+  @Column({ type: DataType.INTEGER, allowNull: false })
+  partner!: number;
+
+  @Column({ type: DataType.STRING(36), allowNull: false, unique: true })
+  uuid!: string;
+
+  @Column(DataType.STRING(255))
+  external_id?: string;
+
+  @Column({ type: DataType.STRING(8), allowNull: false })
+  type!: string;
+
+  @Column(DataType.STRING(255))
+  name?: string;
+
+  @Column(DataType.STRING(30))
+  cpfcnpj?: string;
+
+  @Column(DataType.STRING(50))
+  cuit_cuil?: string;
+
+  @Column(DataType.STRING(30))
+  document?: string;
+
+  @Column(DataType.STRING(18))
+  birthday?: string;
+
+  @Column({ type: DataType.STRING(100), allowNull: false })
+  email!: string;
+
+  @Column(DataType.STRING(100))
+  phone?: string;
+
+  @Default('unverified')
+  @Column({ type: DataType.STRING(36), allowNull: false })
+  status!: string;
+
+  @Column(DataType.INTEGER)
+  organization?: number;
+
+  @Default('en')
+  @Column({ type: DataType.STRING(10) })
+  locale?: string;
+
+  @Column(DataType.TEXT)
+  address?: string;
+
+  @Column(DataType.DATE)
+  deleted_at?: Date;
+
+  @Column({ type: DataType.DATE, allowNull: false, defaultValue: DataType.NOW })
+  created_at!: Date;
+
+  @Column({ type: DataType.DATE, allowNull: false, defaultValue: DataType.NOW })
+  updated_at!: Date;
 }
