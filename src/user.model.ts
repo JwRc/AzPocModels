@@ -3,8 +3,12 @@ import { Table, Column, Model, DataType, PrimaryKey, AutoIncrement, Default } fr
 @Table({ tableName: 'users', timestamps: false })
 export class User extends Model<User> {
 
-  @Column({ type: DataType.INTEGER, autoIncrement: true, primaryKey: true })
-  id!: number;
+  @Column({
+    type: DataType.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  })
+  declare id: number;
 
   @Column({ type: DataType.INTEGER, allowNull: false })
   partner!: number;
