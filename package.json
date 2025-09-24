@@ -11,7 +11,8 @@
     }
   },
   "peerDependencies": {
-    "sequelize": "^6"
+    "sequelize": "^6",
+    "sequelize-typescript": "^2.1.6"
   },
   "scripts": {
     "build": "tsc"
