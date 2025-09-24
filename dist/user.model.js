@@ -1,31 +1,180 @@
 "use strict";
+var __esDecorate = (this && this.__esDecorate) || function (ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
+    function accept(f) { if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected"); return f; }
+    var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
+    var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
+    var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
+    var _, done = false;
+    for (var i = decorators.length - 1; i >= 0; i--) {
+        var context = {};
+        for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
+        for (var p in contextIn.access) context.access[p] = contextIn.access[p];
+        context.addInitializer = function (f) { if (done) throw new TypeError("Cannot add initializers after decoration has completed"); extraInitializers.push(accept(f || null)); };
+        var result = (0, decorators[i])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
+        if (kind === "accessor") {
+            if (result === void 0) continue;
+            if (result === null || typeof result !== "object") throw new TypeError("Object expected");
+            if (_ = accept(result.get)) descriptor.get = _;
+            if (_ = accept(result.set)) descriptor.set = _;
+            if (_ = accept(result.init)) initializers.unshift(_);
+        }
+        else if (_ = accept(result)) {
+            if (kind === "field") initializers.unshift(_);
+            else descriptor[key] = _;
+        }
+    }
+    if (target) Object.defineProperty(target, contextIn.name, descriptor);
+    done = true;
+};
+var __runInitializers = (this && this.__runInitializers) || function (thisArg, initializers, value) {
+    var useValue = arguments.length > 2;
+    for (var i = 0; i < initializers.length; i++) {
+        value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+    }
+    return useValue ? value : void 0;
+};
+var __setFunctionName = (this && this.__setFunctionName) || function (f, name, prefix) {
+    if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
+    return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
-exports.initUserModel = initUserModel;
-const sequelize_1 = require("sequelize");
-class User extends sequelize_1.Model {
-}
+const sequelize_typescript_1 = require("sequelize-typescript");
+let User = (() => {
+    let _classDecorators = [(0, sequelize_typescript_1.Table)({ tableName: 'users', timestamps: false })];
+    let _classDescriptor;
+    let _classExtraInitializers = [];
+    let _classThis;
+    let _classSuper = sequelize_typescript_1.Model;
+    let _id_decorators;
+    let _id_initializers = [];
+    let _id_extraInitializers = [];
+    let _partner_decorators;
+    let _partner_initializers = [];
+    let _partner_extraInitializers = [];
+    let _uuid_decorators;
+    let _uuid_initializers = [];
+    let _uuid_extraInitializers = [];
+    let _external_id_decorators;
+    let _external_id_initializers = [];
+    let _external_id_extraInitializers = [];
+    let _type_decorators;
+    let _type_initializers = [];
+    let _type_extraInitializers = [];
+    let _name_decorators;
+    let _name_initializers = [];
+    let _name_extraInitializers = [];
+    let _cpfcnpj_decorators;
+    let _cpfcnpj_initializers = [];
+    let _cpfcnpj_extraInitializers = [];
+    let _cuit_cuil_decorators;
+    let _cuit_cuil_initializers = [];
+    let _cuit_cuil_extraInitializers = [];
+    let _document_decorators;
+    let _document_initializers = [];
+    let _document_extraInitializers = [];
+    let _birthday_decorators;
+    let _birthday_initializers = [];
+    let _birthday_extraInitializers = [];
+    let _email_decorators;
+    let _email_initializers = [];
+    let _email_extraInitializers = [];
+    let _phone_decorators;
+    let _phone_initializers = [];
+    let _phone_extraInitializers = [];
+    let _status_decorators;
+    let _status_initializers = [];
+    let _status_extraInitializers = [];
+    let _organization_decorators;
+    let _organization_initializers = [];
+    let _organization_extraInitializers = [];
+    let _locale_decorators;
+    let _locale_initializers = [];
+    let _locale_extraInitializers = [];
+    let _address_decorators;
+    let _address_initializers = [];
+    let _address_extraInitializers = [];
+    let _deleted_at_decorators;
+    let _deleted_at_initializers = [];
+    let _deleted_at_extraInitializers = [];
+    let _created_at_decorators;
+    let _created_at_initializers = [];
+    let _created_at_extraInitializers = [];
+    let _updated_at_decorators;
+    let _updated_at_initializers = [];
+    let _updated_at_extraInitializers = [];
+    var User = _classThis = class extends _classSuper {
+        constructor() {
+            super(...arguments);
+            this.id = __runInitializers(this, _id_initializers, void 0);
+            this.partner = (__runInitializers(this, _id_extraInitializers), __runInitializers(this, _partner_initializers, void 0));
+            this.uuid = (__runInitializers(this, _partner_extraInitializers), __runInitializers(this, _uuid_initializers, void 0));
+            this.external_id = (__runInitializers(this, _uuid_extraInitializers), __runInitializers(this, _external_id_initializers, void 0));
+            this.type = (__runInitializers(this, _external_id_extraInitializers), __runInitializers(this, _type_initializers, void 0));
+            this.name = (__runInitializers(this, _type_extraInitializers), __runInitializers(this, _name_initializers, void 0));
+            this.cpfcnpj = (__runInitializers(this, _name_extraInitializers), __runInitializers(this, _cpfcnpj_initializers, void 0));
+            this.cuit_cuil = (__runInitializers(this, _cpfcnpj_extraInitializers), __runInitializers(this, _cuit_cuil_initializers, void 0));
+            this.document = (__runInitializers(this, _cuit_cuil_extraInitializers), __runInitializers(this, _document_initializers, void 0));
+            this.birthday = (__runInitializers(this, _document_extraInitializers), __runInitializers(this, _birthday_initializers, void 0));
+            this.email = (__runInitializers(this, _birthday_extraInitializers), __runInitializers(this, _email_initializers, void 0));
+            this.phone = (__runInitializers(this, _email_extraInitializers), __runInitializers(this, _phone_initializers, void 0));
+            this.status = (__runInitializers(this, _phone_extraInitializers), __runInitializers(this, _status_initializers, void 0));
+            this.organization = (__runInitializers(this, _status_extraInitializers), __runInitializers(this, _organization_initializers, void 0));
+            this.locale = (__runInitializers(this, _organization_extraInitializers), __runInitializers(this, _locale_initializers, void 0));
+            this.address = (__runInitializers(this, _locale_extraInitializers), __runInitializers(this, _address_initializers, void 0));
+            this.deleted_at = (__runInitializers(this, _address_extraInitializers), __runInitializers(this, _deleted_at_initializers, void 0));
+            this.created_at = (__runInitializers(this, _deleted_at_extraInitializers), __runInitializers(this, _created_at_initializers, void 0));
+            this.updated_at = (__runInitializers(this, _created_at_extraInitializers), __runInitializers(this, _updated_at_initializers, void 0));
+            __runInitializers(this, _updated_at_extraInitializers);
+        }
+    };
+    __setFunctionName(_classThis, "User");
+    (() => {
+        var _a;
+        const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create((_a = _classSuper[Symbol.metadata]) !== null && _a !== void 0 ? _a : null) : void 0;
+        _id_decorators = [sequelize_typescript_1.PrimaryKey, sequelize_typescript_1.AutoIncrement, (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.INTEGER)];
+        _partner_decorators = [(0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.INTEGER, allowNull: false })];
+        _uuid_decorators = [(0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING(36), allowNull: false, unique: true })];
+        _external_id_decorators = [(0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING(255))];
+        _type_decorators = [(0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING(8), allowNull: false })];
+        _name_decorators = [(0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING(255))];
+        _cpfcnpj_decorators = [(0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING(30))];
+        _cuit_cuil_decorators = [(0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING(50))];
+        _document_decorators = [(0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING(30))];
+        _birthday_decorators = [(0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING(18))];
+        _email_decorators = [(0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING(100), allowNull: false })];
+        _phone_decorators = [(0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING(100))];
+        _status_decorators = [(0, sequelize_typescript_1.Default)('unverified'), (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING(36), allowNull: false })];
+        _organization_decorators = [(0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.INTEGER)];
+        _locale_decorators = [(0, sequelize_typescript_1.Default)('en'), (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING(10) })];
+        _address_decorators = [(0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.TEXT)];
+        _deleted_at_decorators = [(0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.DATE)];
+        _created_at_decorators = [(0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.DATE, allowNull: false, defaultValue: sequelize_typescript_1.DataType.NOW })];
+        _updated_at_decorators = [(0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.DATE, allowNull: false, defaultValue: sequelize_typescript_1.DataType.NOW })];
+        __esDecorate(null, null, _id_decorators, { kind: "field", name: "id", static: false, private: false, access: { has: obj => "id" in obj, get: obj => obj.id, set: (obj, value) => { obj.id = value; } }, metadata: _metadata }, _id_initializers, _id_extraInitializers);
+        __esDecorate(null, null, _partner_decorators, { kind: "field", name: "partner", static: false, private: false, access: { has: obj => "partner" in obj, get: obj => obj.partner, set: (obj, value) => { obj.partner = value; } }, metadata: _metadata }, _partner_initializers, _partner_extraInitializers);
+        __esDecorate(null, null, _uuid_decorators, { kind: "field", name: "uuid", static: false, private: false, access: { has: obj => "uuid" in obj, get: obj => obj.uuid, set: (obj, value) => { obj.uuid = value; } }, metadata: _metadata }, _uuid_initializers, _uuid_extraInitializers);
+        __esDecorate(null, null, _external_id_decorators, { kind: "field", name: "external_id", static: false, private: false, access: { has: obj => "external_id" in obj, get: obj => obj.external_id, set: (obj, value) => { obj.external_id = value; } }, metadata: _metadata }, _external_id_initializers, _external_id_extraInitializers);
+        __esDecorate(null, null, _type_decorators, { kind: "field", name: "type", static: false, private: false, access: { has: obj => "type" in obj, get: obj => obj.type, set: (obj, value) => { obj.type = value; } }, metadata: _metadata }, _type_initializers, _type_extraInitializers);
+        __esDecorate(null, null, _name_decorators, { kind: "field", name: "name", static: false, private: false, access: { has: obj => "name" in obj, get: obj => obj.name, set: (obj, value) => { obj.name = value; } }, metadata: _metadata }, _name_initializers, _name_extraInitializers);
+        __esDecorate(null, null, _cpfcnpj_decorators, { kind: "field", name: "cpfcnpj", static: false, private: false, access: { has: obj => "cpfcnpj" in obj, get: obj => obj.cpfcnpj, set: (obj, value) => { obj.cpfcnpj = value; } }, metadata: _metadata }, _cpfcnpj_initializers, _cpfcnpj_extraInitializers);
+        __esDecorate(null, null, _cuit_cuil_decorators, { kind: "field", name: "cuit_cuil", static: false, private: false, access: { has: obj => "cuit_cuil" in obj, get: obj => obj.cuit_cuil, set: (obj, value) => { obj.cuit_cuil = value; } }, metadata: _metadata }, _cuit_cuil_initializers, _cuit_cuil_extraInitializers);
+        __esDecorate(null, null, _document_decorators, { kind: "field", name: "document", static: false, private: false, access: { has: obj => "document" in obj, get: obj => obj.document, set: (obj, value) => { obj.document = value; } }, metadata: _metadata }, _document_initializers, _document_extraInitializers);
+        __esDecorate(null, null, _birthday_decorators, { kind: "field", name: "birthday", static: false, private: false, access: { has: obj => "birthday" in obj, get: obj => obj.birthday, set: (obj, value) => { obj.birthday = value; } }, metadata: _metadata }, _birthday_initializers, _birthday_extraInitializers);
+        __esDecorate(null, null, _email_decorators, { kind: "field", name: "email", static: false, private: false, access: { has: obj => "email" in obj, get: obj => obj.email, set: (obj, value) => { obj.email = value; } }, metadata: _metadata }, _email_initializers, _email_extraInitializers);
+        __esDecorate(null, null, _phone_decorators, { kind: "field", name: "phone", static: false, private: false, access: { has: obj => "phone" in obj, get: obj => obj.phone, set: (obj, value) => { obj.phone = value; } }, metadata: _metadata }, _phone_initializers, _phone_extraInitializers);
+        __esDecorate(null, null, _status_decorators, { kind: "field", name: "status", static: false, private: false, access: { has: obj => "status" in obj, get: obj => obj.status, set: (obj, value) => { obj.status = value; } }, metadata: _metadata }, _status_initializers, _status_extraInitializers);
+        __esDecorate(null, null, _organization_decorators, { kind: "field", name: "organization", static: false, private: false, access: { has: obj => "organization" in obj, get: obj => obj.organization, set: (obj, value) => { obj.organization = value; } }, metadata: _metadata }, _organization_initializers, _organization_extraInitializers);
+        __esDecorate(null, null, _locale_decorators, { kind: "field", name: "locale", static: false, private: false, access: { has: obj => "locale" in obj, get: obj => obj.locale, set: (obj, value) => { obj.locale = value; } }, metadata: _metadata }, _locale_initializers, _locale_extraInitializers);
+        __esDecorate(null, null, _address_decorators, { kind: "field", name: "address", static: false, private: false, access: { has: obj => "address" in obj, get: obj => obj.address, set: (obj, value) => { obj.address = value; } }, metadata: _metadata }, _address_initializers, _address_extraInitializers);
+        __esDecorate(null, null, _deleted_at_decorators, { kind: "field", name: "deleted_at", static: false, private: false, access: { has: obj => "deleted_at" in obj, get: obj => obj.deleted_at, set: (obj, value) => { obj.deleted_at = value; } }, metadata: _metadata }, _deleted_at_initializers, _deleted_at_extraInitializers);
+        __esDecorate(null, null, _created_at_decorators, { kind: "field", name: "created_at", static: false, private: false, access: { has: obj => "created_at" in obj, get: obj => obj.created_at, set: (obj, value) => { obj.created_at = value; } }, metadata: _metadata }, _created_at_initializers, _created_at_extraInitializers);
+        __esDecorate(null, null, _updated_at_decorators, { kind: "field", name: "updated_at", static: false, private: false, access: { has: obj => "updated_at" in obj, get: obj => obj.updated_at, set: (obj, value) => { obj.updated_at = value; } }, metadata: _metadata }, _updated_at_initializers, _updated_at_extraInitializers);
+        __esDecorate(null, _classDescriptor = { value: _classThis }, _classDecorators, { kind: "class", name: _classThis.name, metadata: _metadata }, null, _classExtraInitializers);
+        User = _classThis = _classDescriptor.value;
+        if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, { enumerable: true, configurable: true, writable: true, value: _metadata });
+        __runInitializers(_classThis, _classExtraInitializers);
+    })();
+    return User = _classThis;
+})();
 exports.User = User;
-function initUserModel(sequelize) {
-    User.init({
-        id: {
-            type: sequelize_1.DataTypes.INTEGER,
-            autoIncrement: true,
-            primaryKey: true,
-        },
-        name: {
-            type: sequelize_1.DataTypes.STRING,
-            allowNull: false,
-        },
-        email: {
-            type: sequelize_1.DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-        },
-    }, {
-        sequelize,
-        modelName: 'User',
-        tableName: 'users',
-    });
-    return User;
-}
