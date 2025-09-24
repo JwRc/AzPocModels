@@ -47,7 +47,7 @@ export class User extends Model<UserAttributes, UserCreationAttributes> implemen
   public updated_at!: Date;
 }
 
-export function initModels(sequelize: Sequelize) {
+export function initUserModels(sequelize: Sequelize) {
   User.init(
     {
       id: {
