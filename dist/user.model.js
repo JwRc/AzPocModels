@@ -12,11 +12,7 @@ let User = class User extends sequelize_typescript_1.Model {
 };
 exports.User = User;
 __decorate([
-    (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-    })
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.INTEGER, primaryKey: true, autoIncrement: true })
 ], User.prototype, "id", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.INTEGER, allowNull: false })
@@ -25,54 +21,52 @@ __decorate([
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING(36), allowNull: false, unique: true })
 ], User.prototype, "uuid", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING(255))
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING(255), allowNull: true })
 ], User.prototype, "external_id", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING(8), allowNull: false })
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.CHAR(8), allowNull: false })
 ], User.prototype, "type", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING(255))
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING(255), allowNull: true })
 ], User.prototype, "name", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING(30))
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING(30), allowNull: true })
 ], User.prototype, "cpfcnpj", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING(50))
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING(50), allowNull: true })
 ], User.prototype, "cuit_cuil", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING(30))
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING(30), allowNull: true })
 ], User.prototype, "document", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING(18))
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING(18), allowNull: true })
 ], User.prototype, "birthday", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING(100), allowNull: false })
 ], User.prototype, "email", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING(100))
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING(100), allowNull: true })
 ], User.prototype, "phone", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Default)('unverified'),
-    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING(36), allowNull: false })
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING(36), allowNull: false, defaultValue: 'unverified' })
 ], User.prototype, "status", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.INTEGER)
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.INTEGER, allowNull: true })
 ], User.prototype, "organization", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Default)('en'),
-    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING(10) })
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING(10), allowNull: true, defaultValue: 'en' })
 ], User.prototype, "locale", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.TEXT)
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.TEXT, allowNull: true })
 ], User.prototype, "address", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.DATE)
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.DATE, allowNull: true })
 ], User.prototype, "deleted_at", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.DATE, allowNull: false, defaultValue: sequelize_typescript_1.DataType.NOW })
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.DATE, allowNull: false })
 ], User.prototype, "created_at", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.DATE, allowNull: false, defaultValue: sequelize_typescript_1.DataType.NOW })
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.DATE, allowNull: false })
 ], User.prototype, "updated_at", void 0);
 exports.User = User = __decorate([
     (0, sequelize_typescript_1.Table)({ tableName: 'users', timestamps: false })

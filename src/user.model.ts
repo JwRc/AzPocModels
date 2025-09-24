@@ -1,68 +1,61 @@
-import { Table, Column, Model, DataType, PrimaryKey, AutoIncrement, Default } from 'sequelize-typescript';
+import { Table, Column, Model, DataType } from 'sequelize-typescript';
 
 @Table({ tableName: 'users', timestamps: false })
 export class User extends Model<User> {
-
-  @Column({
-    type: DataType.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
-  })
+  @Column({ type: DataType.INTEGER, primaryKey: true, autoIncrement: true })
   declare id: number;
 
   @Column({ type: DataType.INTEGER, allowNull: false })
-  partner!: number;
+  declare partner: number;
 
   @Column({ type: DataType.STRING(36), allowNull: false, unique: true })
-  uuid!: string;
+  declare uuid: string;
 
-  @Column(DataType.STRING(255))
-  external_id?: string;
+  @Column({ type: DataType.STRING(255), allowNull: true })
+  declare external_id: string | null;
 
-  @Column({ type: DataType.STRING(8), allowNull: false })
-  type!: string;
+  @Column({ type: DataType.CHAR(8), allowNull: false })
+  declare type: string;
 
-  @Column(DataType.STRING(255))
-  name?: string;
+  @Column({ type: DataType.STRING(255), allowNull: true })
+  declare name: string | null;
 
-  @Column(DataType.STRING(30))
-  cpfcnpj?: string;
+  @Column({ type: DataType.STRING(30), allowNull: true })
+  declare cpfcnpj: string | null;
 
-  @Column(DataType.STRING(50))
-  cuit_cuil?: string;
+  @Column({ type: DataType.STRING(50), allowNull: true })
+  declare cuit_cuil: string | null;
 
-  @Column(DataType.STRING(30))
-  document?: string;
+  @Column({ type: DataType.STRING(30), allowNull: true })
+  declare document: string | null;
 
-  @Column(DataType.STRING(18))
-  birthday?: string;
+  @Column({ type: DataType.STRING(18), allowNull: true })
+  declare birthday: string | null;
 
   @Column({ type: DataType.STRING(100), allowNull: false })
-  email!: string;
+  declare email: string;
 
-  @Column(DataType.STRING(100))
-  phone?: string;
+  @Column({ type: DataType.STRING(100), allowNull: true })
+  declare phone: string | null;
 
-  @Default('unverified')
-  @Column({ type: DataType.STRING(36), allowNull: false })
-  status!: string;
+  @Column({ type: DataType.STRING(36), allowNull: false, defaultValue: 'unverified' })
+  declare status: string;
 
-  @Column(DataType.INTEGER)
-  organization?: number;
+  @Column({ type: DataType.INTEGER, allowNull: true })
+  declare organization: number | null;
 
-  @Default('en')
-  @Column({ type: DataType.STRING(10) })
-  locale?: string;
+  @Column({ type: DataType.STRING(10), allowNull: true, defaultValue: 'en' })
+  declare locale: string | null;
 
-  @Column(DataType.TEXT)
-  address?: string;
+  @Column({ type: DataType.TEXT, allowNull: true })
+  declare address: string | null;
 
-  @Column(DataType.DATE)
-  deleted_at?: Date;
+  @Column({ type: DataType.DATE, allowNull: true })
+  declare deleted_at: Date | null;
 
-  @Column({ type: DataType.DATE, allowNull: false, defaultValue: DataType.NOW })
-  created_at!: Date;
+  @Column({ type: DataType.DATE, allowNull: false })
+  declare created_at: Date;
 
-  @Column({ type: DataType.DATE, allowNull: false, defaultValue: DataType.NOW })
-  updated_at!: Date;
+  @Column({ type: DataType.DATE, allowNull: false })
+  declare updated_at: Date;
 }
